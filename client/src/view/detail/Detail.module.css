@@ -1,0 +1,12 @@
+.detail_cont {
+    background-color: #95dada;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 50px auto;
+    width: 50%;
+}   
+
+.imageD {
+    height: 50%;
+    width: 90%;
+}
