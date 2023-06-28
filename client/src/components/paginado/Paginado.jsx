@@ -6,6 +6,8 @@ import { Link } from "react-router-dom"
 
 const Paginado = ({currentPage, prevHandlers, nextHandlers, allDogs}) => {
 
+    console.log(allDogs)
+
     const card = allDogs.map((dog, index) => {
         return ( 
             <div key={index} className={style.card_container}>
@@ -22,9 +24,10 @@ const Paginado = ({currentPage, prevHandlers, nextHandlers, allDogs}) => {
 
     return (
         <div>
-            <h3 className={styl.pagina}>Pagina: {currentPage}</h3>
             <button className={styl.button_pag1} onClick={prevHandlers}>Prev</button>
+            <h3 className={styl.pagina}>Pagina: {currentPage}</h3>
             <button className={styl.button_pag2} onClick={nextHandlers}>Next</button>
+
 
             <div className={styles.card_list}>
                 {card}

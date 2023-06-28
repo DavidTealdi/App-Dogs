@@ -1,4 +1,4 @@
-const {getTemperaments, getTemperamentsDB} = require('../controllers/temperamentsControllers')
+const {getTemperaments, getTemperamentsDB, postTemperamentsControllers} = require('../controllers/temperamentsControllers')
 
 const getTemperamentsHandlers = async (req, res) => {
 
@@ -27,7 +27,25 @@ const getTemperamentsHandlersDB = async (req, res) => {
 } 
 
 
+const postTemperamentsHandlers = async (req, res) => {
+
+    const {name} = req.body
+
+    try {
+
+        const response = await postTemperamentsControllers(name)
+
+        return res.status(200).json(response)
+
+    } catch (error) {
+        return res.status(400).json({error: error.message})
+    }
+} 
+
+
+
 module.exports = {
     getTemperamentsHandlers,
-    getTemperamentsHandlersDB
+    getTemperamentsHandlersDB,
+    postTemperamentsHandlers
 }

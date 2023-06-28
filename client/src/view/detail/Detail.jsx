@@ -8,12 +8,11 @@ const Detail = () => {
 
     const dispatch = useDispatch();
 
+    // Trae el detalle del perro
     let dog = useSelector((state) => state.dogDetail);
 
     // Guardo el array de objeto de temperamentos
     let datostemp = dog.Temperaments
-
-    console.log(datostemp)
 
     // objeto para guardar la info que llega de la api
     let obj = {

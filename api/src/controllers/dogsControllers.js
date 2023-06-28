@@ -29,13 +29,13 @@ const getDogsApi = async (req, res) => {
 
 // Atre de la DB y su relacion
 const getDogsDB = async () => {
-    
+
     const DBDogs = await Dog.findAll({
-        incluide: {
+        include: {
             model: Temperament,
-            attributes: ["name"]
+            attributes: ['name']
         }
-    })
+    });
 
     return DBDogs
 }
@@ -73,7 +73,7 @@ const getDogsById = async (id) => {
         const dog = await Dog.findByPk(id, {
             include: {
                 model: Temperament,
-                attributes: ['name'],
+                attributes: ['name']
             }
         });
 
@@ -102,7 +102,7 @@ const getDogsById = async (id) => {
 }
 
 
-const createDogsDB = async (name, image, height, weight, lifeSpan, temperamentId) => {
+const createDogsDB = async (name, image, height, weight, lifeSpan, temperamentName) => {
 
     const newDog = await Dog.create({
 		name,
@@ -113,11 +113,18 @@ const createDogsDB = async (name, image, height, weight, lifeSpan, temperamentId
 	}); 
 
 
+    // const temperamentsToAdd = await Temperament.findAll({
+    //     where: {
+    //         id: temperamentId
+    //     }
+    // })
+
     const temperamentsToAdd = await Temperament.findAll({
         where: {
-            id: temperamentId
+            name: temperamentName
         }
     })
+
 
     await newDog.addTemperament(temperamentsToAdd)
 

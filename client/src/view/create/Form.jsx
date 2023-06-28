@@ -8,7 +8,7 @@ const Form = () => {
 
     const dispatch = useDispatch()
 
-    const temperaments = useSelector((state) => state.temperaments)
+    const allTemperaments = useSelector((state) => state.temperaments)
 
     const [input, setInput] = useState({
         name: '',
@@ -16,11 +16,10 @@ const Form = () => {
         weight: '',
         lifeSpan: '',
         image: '',
+        temperaments: []
     })
 
     const [error, setError] = useState({}) 
-
-    let temperamentId = []
 
     const handleInput = (event) => {
         setInput({
@@ -33,18 +32,37 @@ const Form = () => {
         }))
     }
 
-    const selectTemp = (event) => {
-        temperamentId.push(event.target.value)
-        // console.log(event.target.value)
+
+    const handlerTemps = (e) => {
+        const add = (e) => {
+            if(input.temperaments.includes(e.target.value)){
+                return [...input.temperaments];
+            } else {
+                return [...input.temperaments, e.target.value];
+            }
+        }
+        setInput({
+            ...input,
+            temperaments: add(e),
+        });
+    };
+
+    const handleDeleteTemp = (e) => {
+        setInput({
+            ...input,
+            temperaments: input.temperaments.filter(temp => temp !== e)
+        })
     }
 
+
+    
     let dogInput = {
         name: input.name,
         height: input.height,
         weight: input.weight,
         lifeSpan: input.lifeSpan,
         image: input.image,
-        temperamentId
+        temperamentName: input.temperaments
     }
 
     const handleSubmit = (event) => {
@@ -56,9 +74,8 @@ const Form = () => {
             weight: '',
             lifeSpan: '',
             image: '',
+            temperaments: []
         })
-
-        temperamentId = []
 
         dispatch(postDogs(dogInput))
         
@@ -66,6 +83,7 @@ const Form = () => {
 
     useEffect(() => {
         dispatch(getTemperaments())
+
     }, [dispatch])
     
 
@@ -100,17 +118,35 @@ const Form = () => {
                 <input type="text" placeholder="Imagen" name='image' value={input.image} onChange={handleInput} className={style.inputC}/>
                 <p className={style.pError}>{error.image && error.image}</p>
 
-                <label htmlFor="temperament" className={style.labelC}>Temperamentos</label>
-                <select id='temperament' value={temperaments.id} onChange={selectTemp} className={style.selectC}>
-                    <option>Seleccione Temperamentos</option>
-                    {
-                        temperaments.map(tem => <option key={tem.id} value={tem.id}>{tem.name}</option>)
+
+                <select className={style.select} onChange={e => handlerTemps(e)}>
+                        {
+                            allTemperaments?.map(item=>{
+                                return (
+                                    <option value={item.name}>{item.name}</option>
+                                )
+                        })
                     }
                 </select>
 
-                <button disabled = {!input.name || !input.height || !input.weight || !input.lifeSpan || error.name || error.height || error.weight || error.lifeSpan }> Enviar </button>
+
+                <div className={style.array}>
+                    {
+                        input.temperaments?.map(item => {
+                            return (<div key={item}>
+                                <button className={style.buttonT} onClick={() => {handleDeleteTemp(item)}}>{item}</button>
+                            </div>)
+                        })
+                    }
+                </div>
+
+
+                <button disabled = {!input.name || !input.height || !input.weight || !input.lifeSpan || error.name || error.height || error.weight || error.lifeSpan}> Enviar </button>
 
             </form>
+            
+            
+            
 
         </section>
     )

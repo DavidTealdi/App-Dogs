@@ -1,12 +1,13 @@
 const { Router } = require("express");
 
-const {getTemperamentsHandlers, getTemperamentsHandlersDB} = require('../handlers/temperamentsHandlers')
+const {getTemperamentsHandlers, getTemperamentsHandlersDB, postTemperamentsHandlers} = require('../handlers/temperamentsHandlers')
 
 const temperamentsRouter =  Router()
 
 temperamentsRouter
     .get('/api1', getTemperamentsHandlers)
     .get('/api2', getTemperamentsHandlersDB)
+    .post('/', postTemperamentsHandlers)
 
 
 module.exports = temperamentsRouter

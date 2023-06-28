@@ -6,6 +6,7 @@ function Cards({ dogs }) {
 
   const {id, name, image, temperaments, weight } = dogs;
 
+
   return (
     <div className={style.card_container}>
 

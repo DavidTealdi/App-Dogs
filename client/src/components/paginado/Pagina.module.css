@@ -1,9 +1,11 @@
 .pagina {
+    display: inline;
     font-size: 25px;
     color: #fff;
 }
 
 .button_pag1 {
+    display: inline;
     margin: 30px;
     margin-bottom: 40px;
     padding: 6px 15px;
@@ -14,6 +16,7 @@
 }
 
 .button_pag2 {
+    display: inline;
     margin: 30px;
     margin-bottom: 40px;
     padding: 6px 15px;

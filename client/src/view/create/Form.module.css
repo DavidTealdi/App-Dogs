@@ -40,18 +40,17 @@ section {
 
 .FormC button {
     margin-top: 20px;
-    padding: 6px 20px;
+    padding: 8px 22px;
     font-size: 18px;
     font-weight: 400;
     border: none;
-    background-color: #000;
-    color: #fff;
+    color: #000;
     border-radius: 5px;
     cursor: pointer;
 }
 
 
-.selectC {
+.select {
     margin: 10px;
     padding: 10px;
     border-radius: 6px;
@@ -66,4 +65,19 @@ section {
 .pError {
     color: red;
     font-size: 18px;
+}
+
+.p {
+    background-color: #000;
+    color: #fff;
+}
+
+.array{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.buttonT {
+    margin: 4px;
 }

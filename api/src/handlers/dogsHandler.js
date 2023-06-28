@@ -46,11 +46,11 @@ const getDogsByIdHandler = async (req, res) => {
  
 const postDogsHandler = async (req, res) => {
 
-    const { name, image, height, weight, lifeSpan, temperamentId } = req.body
+    const { name, image, height, weight, lifeSpan, temperamentName } = req.body
 
     try {
 
-        const response = await createDogsDB(name, image, height, weight, lifeSpan, temperamentId)
+        const response = await createDogsDB(name, image, height, weight, lifeSpan, temperamentName)
 
         return res.status(200).json({message: 'Dog created'})
 
