@@ -1,6 +1,6 @@
 import style from "./Home.module.css"
 
-import { getDogs, getDogsByName, filter, deleteDog, filterPeso, filterAltura, filtertemp, filteryear,  filterApiDB } from '../../redux/actions'
+import { getDogs, getDogsByName, filter, deleteDog, filterPeso, filterAltura, filtertemp, filteryear} from '../../redux/actions'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
@@ -10,10 +10,6 @@ import Paginado from "../../components/paginado/Paginado";
 
 const Home = () => {
     const dispatch = useDispatch()
-    
-    // const dogsFiltered = useSelector((state) => state.dogsFilter)
-    // const dogName = useSelector((state) => state.dogName)
-    
 
     // Trae todos los perros 
     const allDogs = useSelector((state) => state.allDogs)
@@ -28,8 +24,6 @@ const Home = () => {
 
     //Estado del Input
     const [searchString, setSearchString] = useState("")
-
-
 
     // Input
     const handleChange = (event) => {
@@ -94,11 +88,6 @@ const Home = () => {
         dispatch(filtertemp(event.target.value))
     }
 
-    // const filterPoApiDB = (event) => {
-    //     dispatch(filterApiDB(event.target.value))
-    // }
- 
-
     useEffect(() => {
         if(!allDogs.length) dispatch(getDogs())
 
@@ -158,17 +147,6 @@ const Home = () => {
                 </div>
                 
             </div>
-
-                {/* <label className={style.labelSelectOrder} htmlFor="">filtrar</label>
-                
-                <select className={style.selectOrder} onChange={filterPoApiDB}>
-                    <option defaultChecked value='0'>Seleccione como filtrar</option>
-                    <option value="db">Perros creados</option>
-                    <option value="api">Perros existentes</option>
-                </select> */}
-
-            
-
             
             <Paginado 
                 allDogs={items}
@@ -176,12 +154,6 @@ const Home = () => {
                 prevHandlers={prevHandlers}
                 nextHandlers={nextHandlers}
             />
-
-            
-
-            {/* <CardLinst allDogs={dogName}/> */}
-            {/* <CardLinst allDogs={dogsFiltered}/> */}
-            
         </div>
     )
 }

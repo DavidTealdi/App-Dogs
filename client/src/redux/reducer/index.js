@@ -1,11 +1,9 @@
-import { DELETE_DOG, GET_DOGS, GET_DOG_BY_ID, GET_DOG_BY_NAME, FILTER, GET_TEMPERAMENTS, FILTER_PESO, FILTER_ALTURA, FILTER_YEAR, FILTER_API_DB, FILTER_TEMP } from "../actions";
+import { DELETE_DOG, GET_DOGS, GET_DOG_BY_ID, GET_DOG_BY_NAME, FILTER, GET_TEMPERAMENTS, FILTER_PESO, FILTER_ALTURA, FILTER_YEAR} from "../actions";
 
 let initialState = {
   allDogs: [],
   dogcopy: [],
-  // dogName: [],
   dogDetail: [],
-  // dogsFilter: [],
   temperaments: [],
   filters: false
 };
@@ -26,7 +24,6 @@ function rootReducer(state = initialState, action) {
     return {
       ...state,
       allDogs: action.payload
-      // dogName: action.payload
     };
     
     case GET_DOG_BY_ID: 
@@ -148,48 +145,7 @@ function rootReducer(state = initialState, action) {
         }
       }
     break;
-
-    // case FILTER_API_DB:
-    //   if(action.payload === 'db') {
-
-    //     const db = initialState.dogcopy
-
-    //     const filterDogs = []
-
-    //     for (let i = 0; i < db.length; i++) {
-    //       if (db[i].created === true) {
-    //         filterDogs.push(db[i])
-    //       }
-    //     }
-
-    //     const filterDogs = db.filter((dog) => dog.created === true)
-
-    //     return {
-    //       ...state,
-    //       allDogs: filterDogs
-    //     }
-      
-    //   } else if(action.payload === 'api') {
-
-    //     const api = initialState.dogcopy
-
-    //     const filterDogs = []
-
-    //     for (let i = 0; i < api.length; i++) {
-    //       if (api[i].created === false) {
-    //         filterDogs.push(api[i])
-    //       }
-    //     }
-
-    //     const filterDogs = api.filter((dog) => dog.created === false)
-
-    //     return {
-    //       ...state,
-    //       allDogs: filterDogs
-    //     }
-    // }
-    // break;
-      
+    
     case GET_TEMPERAMENTS:
       return {
         ...state,

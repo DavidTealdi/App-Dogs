@@ -112,13 +112,6 @@ const createDogsDB = async (name, image, height, weight, lifeSpan, temperamentNa
 		lifeSpan,
 	}); 
 
-
-    // const temperamentsToAdd = await Temperament.findAll({
-    //     where: {
-    //         id: temperamentId
-    //     }
-    // })
-
     const temperamentsToAdd = await Temperament.findAll({
         where: {
             name: temperamentName

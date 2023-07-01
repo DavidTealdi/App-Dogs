@@ -36,19 +36,7 @@ const getTemperamentsDB = async () => {
 	return temperamentDB
 }
 
-
-const postTemperamentsControllers = async (temp) => {
-	
-	const newTemp = await Temperament.create({
-		name: temp
-	})
-
-	return newTemp
-}
-
-
 module.exports = {
     getTemperaments,
 	getTemperamentsDB,
-	postTemperamentsControllers
 }

@@ -144,9 +144,6 @@ const Form = () => {
                 <button disabled = {!input.name || !input.height || !input.weight || !input.lifeSpan || error.name || error.height || error.weight || error.lifeSpan}> Enviar </button>
 
             </form>
-            
-            
-            
 
         </section>
     )

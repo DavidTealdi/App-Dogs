@@ -11,7 +11,6 @@ export const FILTER_PESO = 'FILTER_PESO'
 export const FILTER_API_DB = 'FILTER_API_DB'
 export const FILTER_ALTURA = 'FILTER_ALTURA'
 export const FILTER_YEAR = 'FILTER_YEAR'
-export const FILTER_TEMP = 'FILTER_TEMP'
 
 export function getDogs() {
     
@@ -155,23 +154,4 @@ export function filteryear(orden) {
             payload: orden
         })
     };
-}
-
-export function filtertemp(orden) {
-    return function (dispatch) {
-        return dispatch({
-            type: FILTER_TEMP,
-            payload: orden
-        })
-    }
-}
-
-
-export function filterApiDB(orden) {
-    return function (dispatch) {
-        return dispatch({
-            type: FILTER_API_DB,
-            payload: orden
-        })
-    }
 }
