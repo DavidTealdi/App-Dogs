@@ -7,7 +7,6 @@ const temperamentsRouter =  Router()
 temperamentsRouter
     .get('/api1', getTemperamentsHandlers)
     .get('/api2', getTemperamentsHandlersDB)
-    .post('/', postTemperamentsHandlers)
 
 
 module.exports = temperamentsRouter

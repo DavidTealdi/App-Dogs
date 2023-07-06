@@ -1,6 +1,6 @@
 import style from "./Home.module.css"
 
-import { getDogs, getDogsByName, filter, deleteDog, filterPeso, filterAltura, filtertemp, filteryear} from '../../redux/actions'
+import { getDogs, getDogsByName, filter, deleteDog, filterPeso, filterAltura, filteryear} from '../../redux/actions'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
@@ -83,11 +83,7 @@ const Home = () => {
     const filterOrdyear = (event) => {
         dispatch(filteryear(event.target.value))
     }
-
-    const filterOrdTemp = (event) => {
-        dispatch(filtertemp(event.target.value))
-    }
-
+    
     useEffect(() => {
         if(!allDogs.length) dispatch(getDogs())
 
